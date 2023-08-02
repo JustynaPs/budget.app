@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Nie można usunąć kategorii{% endblock %}
+{% block content %}
+    <p>Nie można usunąć kategorii Przychody.</p>
+    <a href="{% url 'main:category_list_view' %}" class="w3-button w3-black">Powrót do listy kategorii</a>
+{% endblock %}

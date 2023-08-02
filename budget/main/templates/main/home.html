@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Aplikacja budżetowa{% endblock %}
+{% block header %}<b>Aplikacja budżetowa</b>{% endblock %}
+{% block content %}
+<h3>Witaj {% if user.is_authenticated %} <b>{{user.username}}</b> {% endif %}na stronie głównej</h3>
+
+
+<h4><b>Aplikacja budżetowa</b> została stworzona z myślą o osobach, które chcą zarządzać swoimi finansami i świadomie planować wydatki.</h4>
+<p>Dzięki tej aplikacji możesz śledzić swoje przychody i wydatki, zyskując pełną kontrolę nad swoim budżetem.
+Użytkownicy mają możliwość personalizować aplikację pod swoje potrzeby.</p>
+
+
+<p>Po zalogowaniu użytkownik ma możliwość dodania wydatków i przychodów, a także kategorii, jakiej dotyczy dany wpis.
+W intuicyjny sposób użytkownik ma możliwość dodać szczegółowy opis, kwotę, datę i kategorię danej transakcji, co pozwala w pełni kontrolować swoje finanse.</p>
+
+
+{% endblock %}
+

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Usunięcie wpisu{% endblock %}
+{% block header %}Usunięcie wpisu{% endblock %}
+{% block content %}
+<h2>Czy na pewno chcesz usunąć wpis <b>{{ estimated.description }}</b> z dnia <b>{{ estimated.date }}</b> na kwotę <b>{{ estimated.amount }}</b>?</h2>
+<form method="post">
+    {% csrf_token %}
+      <input class="w3-button w3-red" type="submit" name="accept" value="Usuń">
+      <input class="w3-button w3-blue" type="submit" name="reject" value="Anuluj">
+</form>
+{% endblock %}

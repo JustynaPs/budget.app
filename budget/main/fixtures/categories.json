@@ -1,0 +1,30 @@
+[
+  {
+    "model": "main.Categories",
+    "pk": 1,
+    "fields": {
+      "name": "Przychody"
+    }
+  },
+  {
+    "model": "main.Categories",
+    "pk": 2,
+    "fields": {
+      "name": "Żywność"
+    }
+  },
+  {
+    "model": "main.Categories",
+    "pk": 3,
+    "fields": {
+      "name": "Transport"
+    }
+  },
+    {
+    "model": "main.Categories",
+    "pk": 4,
+    "fields": {
+      "name": "Podatki i opłaty"
+    }
+  }
+]

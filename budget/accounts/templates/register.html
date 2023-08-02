@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Rejestracja{% endblock %}}
+{% block header %}Rejestracja{% endblock %}}
+{% block content %}
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button class="w3-button w3-black" type="submit">Zarejestruj się</button>
+</form>
+{% endblock %}}

@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Nie można zmienić kategorii{% endblock %}
+{% block content %}
+    <p>Nie można zmienić kategorii Przychody.</p>
+    <a href="{% url 'main:category_list_view' %}" class="w3-button w3-black">Powrót do listy kategorii</a>
+{% endblock %}

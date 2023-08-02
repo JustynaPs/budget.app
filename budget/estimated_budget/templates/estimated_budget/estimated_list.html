@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Szacowany budżet{% endblock %}
+{% block header %}Szacowany budżet{% endblock %}
+{% block content %}
+
+<p>Przychody:{{ amount.incomes }}</p>
+<p>Koszty:{{ amount.outcomes }}</p>
+<p>Bilans:{{ amount.balance }}</p>
+
+{% if amount.balance < 0 %}
+<p style="color: #c41111;"><b>Planujesz więcej wydać niż zarobisz... Na pewno to przemyślałeś/aś? </b></p>
+{% endif %}
+
+<a class="w3-button w3-green" href="{% url 'estimated_budget:create' %}">Dodaj nowy szacowany wydatek/ przychód</a>
+
+<table class="w3-table w3-striped w3-border">
+    <tr>
+        <td><b>Szacowana kwota</b></td>
+        <td><b>Kategoria</b></td>
+        <td><b>Data</b></td>
+        <td><b>Adnotacje</b></td>
+        <td><b>Edytuj</b></td>
+    </tr>
+
+    {% for estimated in estimated_list %}
+    <tr>
+        <td>{{ estimated.amount }}</td>
+        <td>{{ estimated.category_id }}</td>
+        <td>{{ estimated.date }}</td>
+        <td>{{ estimated.description }}</td>
+        <td><a href="{% url 'estimated_budget:update' estimated.id %}">Edytuj</a> |
+            <a href="{% url 'estimated_budget:delete' estimated.id %}">Usuń</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

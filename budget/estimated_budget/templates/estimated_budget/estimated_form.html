@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Dodanie/aktualizacja szacowanego wydatku{% endblock %}
+{% block header %}Dodanie/aktualizacja szacowanego wydatku{% endblock %}
+{% block content %}
+
+<form method="post">
+    <table>{{ form }}</table>
+    {% csrf_token %}
+    <input type="submit" value="Dodaj/Aktualizuj" />
+</form>
+
+{% endblock %}
+
+<p><a href="{% url 'main:estimated' %}">Powróć do listy wydatków</a></p>

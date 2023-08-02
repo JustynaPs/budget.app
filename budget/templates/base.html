@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{% static 'css/base.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+    <div class="w3-bar w3-black">
+      <a href="{% url 'main:home' %}" class="w3-bar-item w3-button">Strona domowa</a>
+      <a href="{% url 'main:expenses' %}" class="w3-bar-item w3-button">Wydatki</a>
+      <a href="{% url 'main:category_list_view' %}" class="w3-bar-item w3-button">Kategorie</a>
+      <a href="{% url 'estimated_budget:estimated' %}" class="w3-bar-item w3-button">Szacowany budżet</a>
+      <a href="#" class="w3-bar-item w3-button">Stan konta</a>
+      <a href="#" class="w3-bar-item w3-button">Analiza</a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'accounts:logout' %}" class="w3-bar-item w3-button">Wyloguj się</a>
+        <a><b>{{user.username}}</b></a>
+        {% else %}
+            <a href="{% url 'accounts:login' %}" class="w3-bar-item w3-button">Zaloguj się</a>
+        {% endif %}
+    </div>
+
+    <h1>{% block header %}{% endblock %}</h1>
+</head>
+<body>
+
+<main>{% block content %} {% endblock %}</main>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Dodaj customową kategorię{% endblock %}
+{% block content %}
+<h2>Dodaj customową kategorię:</h2>
+  <form method="POST">
+      {% csrf_token %}
+      <input type="text" placeholder="kategoria" name="category_name">
+      <input type="submit" value="Dodaj">
+  </form>
+{% endblock %}

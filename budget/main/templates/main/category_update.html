@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Modyfikacja kategorii{% endblock %}
+{% block header %}Modyfikacja kategorii{% endblock %}
+{% block content %}
+<h2>Modyfikacja kategorii o numerze {{ category.id }}:</h2>
+  <form method="POST">
+      {% csrf_token %}
+      <input type="text" placeholder="kategoria" name="category" value="{{ category.name }}">
+      <input type="submit" value="Zmodyfikuj">
+  </form>
+  <a href="{% url 'main:category_list_view' %}"><button style="margin-top:1em;">Anuluj</button></a>
+
+{% endblock %}

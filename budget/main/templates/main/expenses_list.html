@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <p>Przychody:{{ amount.incomes }}</p>
+  <p>Koszty:{{ amount.outcomes }}</p>
+  <p>Bilans:{{ amount.balance }}</p>
+
+  <a class="w3-button w3-black" onClick="window.location.reload();">Odśwież stronę</a>
+  <a class="w3-button w3-green" href="{% url 'main:create' %}">Dodaj nowy wydatek/ przychód</a>
+<p>
+<form method="get">
+    <label for="id_start_date">Data od:</label>
+    <input class="form-control" type="date" name="start_date" id="id_start_date" value="{{ filter.form.fields.start_date.widget.attrs.value }}">
+    <label for="id_end_date">Data do:</label>
+    <input class="form-control" type="date" name="end_date" id="id_end_date" value="{{ filter.form.fields.end_date.widget.attrs.value }}">
+    <label for="id_category_id">Kategoria:</label>
+    {{ filter.form.category_id }}
+    <label for="id_amount_from">Kwota od:</label>
+    <input class="form-control" type="number" name="amount_from" id="id_amount_from" value="{{ filter.form.data.amount_from }}">
+    <label for="id_amount_to">Kwota do:</label>
+    <input class="form-control" type="number" name="amount_to" id="id_amount_to" value="{{ filter.form.data.amount_to }}">
+    <button class="btn btn-primary" type="submit">Filtruj</button>
+</form>
+</p>
+  <table class="w3-table w3-striped w3-border">
+    <tr>
+      <td><b>Kwota</b></td>
+      <td><b>Kategoria</b></td>
+      <td><b>Data</b></td>
+      <td><b>Opis</b></td>
+      <td><b>Operacje</b></td>
+    </tr>
+    {% for expense in filter.qs %}
+    <tr>
+      <td>{{ expense.amount }}</td>
+      <td>{{ expense.category_id.name }}</td>
+      <td>{{ expense.date }}</td>
+      <td>{{ expense.description }}</td>
+      <td>
+        <a href="{% url 'main:update' expense.id %}">Edytuj</a> |
+        <a href="{% url 'main:delete' expense.id %}">Usuń</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
