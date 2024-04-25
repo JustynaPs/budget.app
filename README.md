@@ -30,10 +30,9 @@ ___
 
 The first thing to do is to clone the repository:
 
-[//]: # (zmienic linka do repozyttorium)
 ```sh
-$ git clone https://github.com/gocardless/sample-django-app.git
-$ cd sample-django-app
+$ git clone https://github.com/JustynaPs/budget.app.git
+$ cd budget.app
 ```
 
 Create a virtual environment to install dependencies in and activate it:
@@ -53,7 +52,7 @@ session operates in a virtual environment set up by `virtualenv2`.
 
 Once `pip` has finished downloading the dependencies:
 ```sh
-(env)$ cd project
+(env)$ cd budget
 (env)$ python manage.py runserver
 ```
 And navigate to `http://127.0.0.1:8000/` in your browser.
